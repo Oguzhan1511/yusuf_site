@@ -35,16 +35,16 @@ export default function Footer() {
             </li>
             <li>
               <Mail size={18} className={styles.contactIcon} />
-              <span>info@skygarden.com</span>
+              <span>yusufsel@skygardentr.com</span>
             </li>
             <li>
               <MapPin size={18} className={styles.contactIcon} />
-              <span>[Adres Bilgisi Buraya Gelecek]</span>
+              <span>İstanbul, Türkiye</span>
             </li>
           </ul>
           
           <div className={styles.socialLinks}>
-            <a href="#" aria-label="Instagram"><FaInstagram size={24} /></a>
+            <a href="https://www.instagram.com/skygarden.tr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram size={24} /></a>
             <a href="#" aria-label="Facebook"><FaFacebook size={24} /></a>
           </div>
         </div>
