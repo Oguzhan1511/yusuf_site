@@ -1,0 +1,98 @@
+.pageWrapper {
+  padding-top: 90px; /* offset for navbar */
+  min-height: 100vh;
+  background-color: var(--primary-dark);
+}
+
+.header {
+  background-color: var(--secondary-dark);
+  padding: 60px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pageTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.pageTitle span {
+  color: var(--accent-gold);
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.productCard {
+  position: relative;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.productCard:hover .productImg {
+  transform: scale(1.1);
+}
+
+.productOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.2) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px;
+  opacity: 1; /* Always show title but button on hover */
+}
+
+.productOverlay h2 {
+  font-size: 24px;
+  color: var(--text-light);
+  margin-bottom: 15px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.detailBtn {
+  background-color: var(--accent-gold);
+  color: var(--primary-dark);
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.productCard:hover .productOverlay h2 {
+  transform: translateY(0);
+}
+
+.productCard:hover .detailBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.detailBtn:hover {
+  background-color: var(--accent-gold-hover);
+}
