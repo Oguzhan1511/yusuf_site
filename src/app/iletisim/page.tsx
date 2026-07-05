@@ -27,6 +27,14 @@ export default function ContactPage() {
       return;
     }
 
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-18295089478/FX0OCP-qxMocEMbS45NE',
+        'value': 1.0,
+        'currency': 'TRY'
+      });
+    }
+
     const text = `*Yeni İletişim Formu Mesajı*
 Ad Soyad: ${formData.name}
 Telefon: ${formData.phone}

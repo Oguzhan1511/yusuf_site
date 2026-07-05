@@ -22,6 +22,16 @@ export default function WhatsAppButton() {
   const message = `Merhaba SkyGarden, web sitenizden ulaştım. ${productName} hakkında ücretsiz fiyat teklifi ve keşif bilgisi almak istiyorum.`;
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
+  const handleClick = () => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-18295089478/FX0OCP-qxMocEMbS45NE',
+        'value': 1.0,
+        'currency': 'TRY'
+      });
+    }
+  };
+
   return (
     <a 
       href={whatsappUrl} 
@@ -29,6 +39,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       className="whatsapp-float"
       aria-label="WhatsApp İletişim"
+      onClick={handleClick}
     >
       <MessageCircle size={32} />
     </a>
