@@ -183,11 +183,16 @@ input:disabled:checked + .slider {
 @media (max-width: 600px) {
   .bannerContainer {
     bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
     width: 100%;
     max-width: 100%;
     border-radius: 16px 16px 0 0;
     border-bottom: none;
     border-left: none;
     border-right: none;
+    padding: 20px;
+    box-sizing: border-box;
   }
 }
