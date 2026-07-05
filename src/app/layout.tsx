@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
+import CookieBanner from "@/components/CookieBanner";
 export const metadata: Metadata = {
   metadataBase: new URL('https://skygardentr.com'),
   title: {
@@ -68,6 +68,15 @@ export default function RootLayout({
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+              });
+
               gtag('js', new Date());
 
               gtag('config', 'AW-18295089478');
@@ -84,6 +93,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <CookieBanner />
       </body>
     </html>
   );

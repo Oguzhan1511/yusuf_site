@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from 'react';
+import { use, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
@@ -96,6 +96,21 @@ export default function ProductDetail({ params }: { params: Promise<{ slug: stri
 
   const whatsappMessage = `Merhaba SkyGarden, web sitenizden ulaştım. ${product.name} hakkında ücretsiz fiyat teklifi ve keşif bilgisi almak istiyorum.`;
   const whatsappUrl = `https://api.whatsapp.com/send?phone=905392416245&text=${encodeURIComponent(whatsappMessage)}`;
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'view_item', {
+        currency: 'TRY',
+        value: 1,
+        items: [
+          {
+            item_id: slug,
+            item_name: product.name,
+          }
+        ]
+      });
+    }
+  }, [slug, product.name]);
 
   return (
     <div className={styles.productWrapper}>
