@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
+import Script from "next/script";
 export const metadata: Metadata = {
   metadataBase: new URL('https://skygardentr.com'),
   title: {
@@ -61,14 +62,19 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18295089478"></script>
-        <script
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=AW-18295089478`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               
+              // İzin verilene kadar bekle (Consent Mode v2)
               gtag('consent', 'default', {
                 'analytics_storage': 'denied',
                 'ad_storage': 'denied',
@@ -78,8 +84,9 @@ export default function RootLayout({
               });
 
               gtag('js', new Date());
-
-              gtag('config', 'AW-18295089478');
+              gtag('config', 'AW-18295089478', {
+                page_path: window.location.pathname,
+              });
             `,
           }}
         />
